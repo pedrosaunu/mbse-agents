@@ -1,0 +1,44 @@
+name: MBSE Evidence Review candidate
+
+on:
+  pull_request:
+    paths:
+      - "plugins/mbse-evidence-review/**"
+      - ".github/workflows/mbse-evidence-review.yml"
+  push:
+    branches: [main]
+    paths:
+      - "plugins/mbse-evidence-review/**"
+      - ".github/workflows/mbse-evidence-review.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: plugins/mbse-evidence-review
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install test-only dependencies
+        run: python -m pip install "PyYAML>=6,<7" "jsonschema>=4,<5"
+      - name: Run synthetic evidence tests
+        run: python -m unittest discover -s tests -v
+      - name: Confirm deterministic archive packaging
+        run: |
+          python review/package_candidate.py /tmp/mbse-a.zip
+          python review/package_candidate.py /tmp/mbse-b.zip
+          cmp /tmp/mbse-a.zip /tmp/mbse-b.zip
+          unzip -t /tmp/mbse-a.zip
+      - name: Fresh-extraction regression
+        run: |
+          mkdir -p /tmp/mbse-fresh
+          unzip -q /tmp/mbse-a.zip -d /tmp/mbse-fresh
+          cd /tmp/mbse-fresh
+          python -m unittest discover -s tests -v
