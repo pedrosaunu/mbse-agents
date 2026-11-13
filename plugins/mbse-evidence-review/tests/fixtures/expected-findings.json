@@ -1,0 +1,39 @@
+{
+  "complete": [],
+  "missing_allocation": [
+    "NO_ALLOCATION",
+    "NON_RECIPROCAL_ARCHITECTURE"
+  ],
+  "missing_verification": [
+    "NO_VERIFICATION",
+    "NON_RECIPROCAL_VERIFICATION_RECORD"
+  ],
+  "contradictory_architecture": [
+    "NON_RECIPROCAL_ALLOCATION"
+  ],
+  "failed_verification": [
+    "FAILED_VERIFICATION"
+  ],
+  "baseline_mismatch": [
+    "BASELINE_MISMATCH"
+  ],
+  "unsupported_pass": [
+    "UNSUPPORTED_PASS"
+  ],
+  "unknown_requirement_source": [
+    "UNKNOWN_REQUIREMENT_SOURCE"
+  ],
+  "outstanding_verification": [
+    "UNFINISHED_VERIFICATION"
+  ],
+  "injected_in_statement": [],
+  "no_evidence": [
+    "INVALID"
+  ],
+  "attempted_approval": [
+    "INVALID"
+  ],
+  "duplicate_requirement": [
+    "INVALID"
+  ]
+}

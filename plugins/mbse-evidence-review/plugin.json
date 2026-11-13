@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mbse-evidence-review",
+  "version": "0.2.0",
+  "description": "Evidence-linked review of systems engineering requirements, architecture and verification traceability.",
+  "author": {"name": "pedrosaunu", "url": "https://github.com/pedrosaunu"},
+  "repository": "https://github.com/pedrosaunu/mbse-agents",
+  "license": "MIT",
+  "keywords": ["mbse", "systems-engineering", "requirements", "assurance", "traceability"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "MBSE Evidence Review",
+        "shortDescription": "Review engineering evidence",
+        "longDescription": "Trace requirements through architectural allocations and verification records, identify evidence gaps and baseline inconsistencies, and produce findings with closure criteria. This is review assistance, not certification or safety approval.",
+        "developerName": "pedrosaunu",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Review requirement-to-architecture traceability",
+          "Identify missing verification evidence",
+          "Highlight baseline and reciprocal-link inconsistencies",
+          "Prepare evidence-linked remediation findings"
+        ],
+        "defaultPrompt": [
+          "Review these requirements and architecture artifacts for traceability gaps.",
+          "Assess the verification evidence in this synthetic engineering bundle.",
+          "Find unsupported assurance claims and give a corrective-action backlog."
+        ],
+        "logo": "./assets/logo-light.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

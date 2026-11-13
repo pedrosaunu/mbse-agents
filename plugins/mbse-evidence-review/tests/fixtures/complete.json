@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "system": {
+    "name": "Fictional actuator monitoring unit",
+    "baseline": "BL-4"
+  },
+  "sources": [
+    {
+      "id": "DOC-REQ",
+      "version": "r4",
+      "locator": "fictional/requirements.md#REQ-1"
+    },
+    {
+      "id": "DOC-ARCH",
+      "version": "r4",
+      "locator": "fictional/architecture.md#ARCH-1"
+    },
+    {
+      "id": "DOC-VER",
+      "version": "r4",
+      "locator": "fictional/test-plan.md#V-1"
+    },
+    {
+      "id": "DOC-RESULT",
+      "version": "r4",
+      "locator": "fictional/test-results.md#V-1"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "statement": "The unit shall detect a disconnected sensor and enter a bounded degraded mode",
+      "source_id": "DOC-REQ",
+      "allocation_ids": [
+        "ARCH-1"
+      ],
+      "verification_ids": [
+        "V-1"
+      ],
+      "safety_relevant": true
+    }
+  ],
+  "architecture": [
+    {
+      "id": "ARCH-1",
+      "source_id": "DOC-ARCH",
+      "satisfies": [
+        "REQ-1"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "id": "V-1",
+      "source_id": "DOC-VER",
+      "requirement_ids": [
+        "REQ-1"
+      ],
+      "method": "test",
+      "result": "passed",
+      "evidence_source_id": "DOC-RESULT",
+      "baseline": "BL-4"
+    }
+  ]
+}
